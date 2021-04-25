@@ -7,6 +7,8 @@ def sum_of_k(nums, target, k):
     checked = set()
     sum_helper(nums, target, k, output, checked, current, 0)
     return output
+
+
 def sum_helper(nums, target, k, output, checked, current, prev):
     if k == 0:
         return
@@ -21,8 +23,14 @@ def sum_helper(nums, target, k, output, checked, current, prev):
                 checked.add(code)
         sum_helper(nums, target - nums[i], k - 1, output, checked, current, i + 1)
         current.pop()
-nums1 = input("Введите список чисел, разделенных пробелом: ").split()
-nums = list(map(int, nums1))
-target = int(input("Введите сумму которую вы хотите получить:"))
-k = int(input("Введите количество элементов в выводе: "))
-print(sum_of_k(nums, target, k))
+
+
+def main():
+    nums1 = input("Введите список чисел, разделенных пробелом: ").split()
+    nums = list(map(int, nums1))
+    target = int(input("Введите сумму которую вы хотите получить: "))
+    k = int(input("Введите количество элементов в выводе: "))
+    print(sum_of_k(nums, target, k))
+
+
+main()
